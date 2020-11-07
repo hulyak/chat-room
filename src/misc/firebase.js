@@ -1,4 +1,6 @@
 import firebase from 'firebase/app';
+import 'firebase/auth';
+import 'firebase/database';
 
 const config = {
   apiKey: 'AIzaSyCbKuG7VyI6jjs4-wGSA0UvQZK8ohBp0x4',
@@ -13,3 +15,8 @@ const config = {
 
 // instance of firebase app
 const app = firebase.initializeApp(config);
+
+// auth for Facebook and Google
+export const auth = app.auth();
+
+export const database = app.database();
