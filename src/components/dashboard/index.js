@@ -1,5 +1,5 @@
 import React from 'react'
-import { Drawer } from 'rsuite'
+import { Button, Drawer } from 'rsuite'
 import { useProfile } from '../../context/profile.context'
 
 const Dashboard = ({onSignOut}) => {
@@ -24,7 +24,7 @@ const Dashboard = ({onSignOut}) => {
             </Button>
          </Drawer.Footer>
 
-     </h3>
+     </>
     )
 }
 

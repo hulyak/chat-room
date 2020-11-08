@@ -1,7 +1,8 @@
 import { auth } from 'firebase';
-import React from 'react'
-import { Alert, Button, Drawer } from 'rsuite'
+import React, {useCallback} from 'react'
+import { Alert, Button, Drawer, Icon} from 'rsuite'
 import Dashboard from '.';
+import {useModalState, useMediaQuery} from '../../misc/custom-hooks'
 
 const DashboardToggle = () => {
     const {isOpen, close, open} = useModalState();
@@ -10,7 +11,6 @@ const DashboardToggle = () => {
     const onSignOut = useCallback(() => {  // memoize 
         auth.signOut(); // firebase
         Alert.info('Signed out', 4000);
-
         close();
     }, [close])
 
@@ -27,4 +27,4 @@ const DashboardToggle = () => {
     )
 }
 
-export default DashboardToggle
+export default DashboardToggle;

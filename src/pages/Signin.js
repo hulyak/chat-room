@@ -17,7 +17,6 @@ const Signin = () => {
         });
       }
       Alert.success('Signed in', 4000);
-      // console.log(result);
     } catch (err) {
       Alert.info(err.message, 4000);
     }

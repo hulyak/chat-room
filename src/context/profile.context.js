@@ -16,9 +16,12 @@ export const ProfileProvider = ({children}) => {
 
             if(authObj) {
 
+                // create references
                 userRef = database.ref(`/profiles/${authObj.uid}`);
                 console.log(authObj);
+                // sync object changes with "on"
                 userRef.on('value',(snap) => {
+                    console.log("snap" ,snap)
                     const {name, createdAt} = snap.val();
                     
                     const data = {
