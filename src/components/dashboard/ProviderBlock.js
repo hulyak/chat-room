@@ -62,28 +62,27 @@ const ProviderBlock = () => {
 
     return (
         <div>
-        {isConnected["google.com"] && 
-            <Tag closable color="green" onClose={unlinkGoogle}>
-                    <Icon icon="google" /> Connected
-             </Tag>
-        }
-         {isConnected["facebook.com"] && 
-            <Tag closable color="blue" onClose={unlinkFacebook}>
-                <Icon icon="facebook" /> Connected
-            </Tag>
-         }
+            {isConnected["google.com"] && 
+                <Tag closable color="green" onClose={unlinkGoogle}>
+                        <Icon icon="google" /> Connected
+                </Tag>
+            }
+            {isConnected["facebook.com"] && 
+                <Tag closable color="blue" onClose={unlinkFacebook}>
+                    <Icon icon="facebook" /> Connected
+                </Tag>
+            }
             <div className="mt-2">
-            {!isConnected["google.com"] && 
-                <Button block color="green" onClick={linkGoogle}>
-                    <Icon icon="google" /> Link to Google
-                </Button>
-            } 
-               {!isConnected["facebook.com"] &&
-               <Button block color="blue" onClick={linkFacebook}>
-                    <Icon icon="facebook" /> Link to Facebook
-                </Button>
-               }
-              
+                {!isConnected["google.com"] && 
+                    <Button block color="green" onClick={linkGoogle}>
+                        <Icon icon="google" /> Link to Google
+                    </Button>
+                } 
+                {!isConnected["facebook.com"] &&
+                <Button block color="blue" onClick={linkFacebook}>
+                        <Icon icon="facebook" /> Link to Facebook
+                    </Button>
+                }
             </div>
         </div>
     )
