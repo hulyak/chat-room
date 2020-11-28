@@ -21,11 +21,12 @@ export const ProfileProvider = ({children}) => {
                 // sync object changes with "on", subscription, runs every time our path info changes
                 userRef.on('value',(snap) => {
                     console.log("snap", snap)
-                    const {name, createdAt} = snap.val();
+                    const {name, createdAt, avatar} = snap.val();
                     
                     const data = {
                         name,
                         createdAt,
+                        avatar,
                         uid : authObj.uid,
                         email : authObj.email,
                     };
