@@ -7,7 +7,8 @@ const Sidebar = () => {
             <div>
                 <DashboardToggle />
             </div>  
-            bottom 
+            {/* Chat room list*/}
+
         </div>
     )
 }

@@ -1,5 +1,5 @@
 import React, {createContext, useState,  useContext, useEffect} from 'react';
-// import firebase from 'firebase/app';
+import firebase from 'firebase/app';
 import { auth, database } from '../misc/firebase';
 
 const ProfileContext = createContext();
@@ -12,7 +12,7 @@ export const ProfileProvider = ({children}) => {
     useEffect(() => {
         let userRef;
 
-        const authUnsub = auth.onAuthStateChanged((authObj) => {
+        const authUnsub = auth.onAuthStateChanged(async authObj => {
 
             if(authObj) {
                 // create references
