@@ -7,9 +7,10 @@ const Signin = () => {
 
   const signInWithProvider = async provider => {
     try {
-      const { additionalUserInfo, user } = await auth.signInWithPopup(provider);
-
-      //  add to database if the user is new
+      const {additionalUserInfo, user}= await auth.signInWithPopup(provider);
+      // const {additionalUserInfo, user} = result;
+      // console.log(result);
+      //  add to realtime database if the user is new
       if (additionalUserInfo.isNewUser) {
         await database.ref(`/profiles/${user.uid}`).set({
           name: user.displayName,
@@ -18,11 +19,12 @@ const Signin = () => {
       }
       Alert.success('Signed in', 4000);
     } catch (err) {
-      Alert.info(err.message, 4000);
+      Alert.error(err.message, 4000);
     }
   };
 
   const onFacebookSignIn = () => {
+    // returns new Provider object
     signInWithProvider(new firebase.auth.FacebookAuthProvider());
   };
 

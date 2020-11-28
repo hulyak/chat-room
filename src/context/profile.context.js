@@ -15,13 +15,12 @@ export const ProfileProvider = ({children}) => {
         const authUnsub = auth.onAuthStateChanged((authObj) => {
 
             if(authObj) {
-
                 // create references
                 userRef = database.ref(`/profiles/${authObj.uid}`);
                 console.log(authObj);
-                // sync object changes with "on"
+                // sync object changes with "on", subscription 
                 userRef.on('value',(snap) => {
-                    console.log("snap" ,snap)
+                    console.log("snap", snap)
                     const {name, createdAt} = snap.val();
                     
                     const data = {
@@ -44,14 +43,18 @@ export const ProfileProvider = ({children}) => {
             }
         });
 
-        // cleanup subscription
+        // cleanup subscription onAuthStateChanged
         return () => {
             authUnsub();
+
+            if(userRef) {
+                userRef.off();
+            }
         }
     }, [])
 
-    return ( 
-    <ProfileContext.Provider value={{isLoading, profile}}>
+    return (
+    <ProfileContext.Provider value={{isLoading, profile}}> 
         {children}
     </ProfileContext.Provider>
   );
