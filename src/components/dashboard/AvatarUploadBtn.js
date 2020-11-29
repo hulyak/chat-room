@@ -17,7 +17,7 @@ const getBlob = (canvas) => {
         canvas.toBlob((blob) => {
             if(blob) {
                 resolve(blob)
-            }else{
+            } else {
                 reject(new Error("File process error"))
             }
         });
@@ -48,12 +48,9 @@ const AvatarUploadBtn = () => {
     const onUploadClick = async () => {
         // get access to edited image/ canvas
         const canvas = avatarEditorRef.current.getImageScaledToCanvas();
-        // convert canvas to blob file - binary
-        // canvas.toBlob(() => {
+        setIsLoading(true);
 
-        // })
-        setIsLoading(true)
-        try{
+        try {
             const blob = await getBlob(canvas);
             const avatarFileRef = storage.ref(`/profile/${profile.uid}`).child('avatar')
             const uploadAvatarResult = await avatarFileRef.put(blob, {  // Metadata for the newly uploaded object.
@@ -65,7 +62,7 @@ const AvatarUploadBtn = () => {
             userAvatarRef.set(downloadUrl)
             setIsLoading(false)
             Alert.info("Avatar has been downloaded", 4000)
-        }catch(err){
+        } catch(err){
             setIsLoading(false)
             Alert.error(err.message, 4000)
         }
