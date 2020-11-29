@@ -5,14 +5,14 @@ import { useProfile } from '../context/profile.context';
 
 const PrivateRoute = ({ children, ...routeProps }) => {
   // const profile = false;
-  const {profile, isLoading} = useProfile();
+  const { profile, isLoading } = useProfile();
 
-  if(isLoading && !profile) {
+  if (isLoading && !profile) {
     return (
       <Container>
         <Loader center vertical size="md" content="Loading" speed="slow" />
       </Container>
-    )
+    );
   }
 
   if (!profile && !isLoading) {

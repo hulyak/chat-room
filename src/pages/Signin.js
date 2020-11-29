@@ -4,10 +4,9 @@ import { auth, database } from '../misc/firebase';
 import { Alert, Button, Col, Container, Grid, Icon, Panel, Row } from 'rsuite';
 
 const Signin = () => {
-
   const signInWithProvider = async provider => {
     try {
-      const {additionalUserInfo, user}= await auth.signInWithPopup(provider);
+      const { additionalUserInfo, user } = await auth.signInWithPopup(provider);
       // const {additionalUserInfo, user} = result;
       // console.log(result);
       //  add to realtime database if the user is new
@@ -47,12 +46,12 @@ const Signin = () => {
               <div className="mt-3">
                 <Button block color="blue" onClick={onFacebookSignIn}>
                   <Icon icon="facebook" />
-                    Continue with Facebook
+                  Continue with Facebook
                 </Button>
 
                 <Button block color="green" onClick={onGoogleSignIn}>
                   <Icon icon="google" />
-                      Continue with Google
+                  Continue with Google
                 </Button>
               </div>
             </Panel>

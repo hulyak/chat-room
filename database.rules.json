@@ -1,17 +1,17 @@
 {
   "rules": {
-    "profiles" : {
+    "profiles": {
       "$user_id": {
-        ".read" : "$user_id === auth.uid",
-        ".write" : "$user_id === auth.uid",
+        ".read": "$user_id === auth.uid",
+        ".write": "$user_id === auth.uid"
       }
     },
-    "rooms" : {
-       ".read" : "auth != null",
-      	".write" : "auth != null",
+    "rooms": {
+      ".read": "auth != null",
+      ".write": "auth != null",
       "$user_id": {
-        ".read" : "auth != null",
-        ".write" : "auth != null",
+        ".read": "auth != null",
+        ".write": "auth != null"
       }
     },
     ".read": false,
