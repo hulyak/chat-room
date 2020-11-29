@@ -1,5 +1,4 @@
 import React, {createContext, useState,  useContext, useEffect} from 'react';
-import firebase from 'firebase/app';
 import { auth, database } from '../misc/firebase';
 
 const ProfileContext = createContext();
