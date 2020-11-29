@@ -4,7 +4,7 @@ import { Loader, Nav } from 'rsuite';
 import { useRooms } from '../../context/rooms.context';
 import RoomItem from './RoomItem';
 
-const ChatRoom = ({ aboveElementHeight }) => {
+const ChatRoomList = ({ aboveElementHeight }) => {
   const rooms = useRooms();
   const location = useLocation();
 
@@ -39,4 +39,4 @@ const ChatRoom = ({ aboveElementHeight }) => {
   );
 };
 
-export default ChatRoom;
+export default ChatRoomList;
