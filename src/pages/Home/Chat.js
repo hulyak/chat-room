@@ -6,22 +6,20 @@ import ChatTop from '../../components/chat-window/top';
 import ChatBottom from '../../components/chat-window/bottom';
 import { useRooms } from '../../context/rooms.context';
 
-
-
 const Chat = () => {
-    // chat id parameter
-    const {chatId} = useParams();
-    const rooms = useRooms();
+  // chat id parameter
+  const { chatId } = useParams();
+  const rooms = useRooms();
 
-    if (!rooms){
-        return <Loader center vertical size="md" content="Loading" speed="slow" />
-    }
+  if (!rooms) {
+    return <Loader center vertical size="md" content="Loading" speed="slow" />;
+  }
 
-    const currentRoom = rooms.find(room => room.id === chatId);
+  const currentRoom = rooms.find(room => room.id === chatId);
 
-    if(!currentRoom){
-        return <h6 className="text-center mt-page">Chat {chatId} not found</h6>
-    }
+  if (!currentRoom) {
+    return <h6 className="text-center mt-page">Chat {chatId} not found</h6>;
+  }
 
   return (
     <>

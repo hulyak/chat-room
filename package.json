@@ -16,7 +16,8 @@
     "react-scripts": "3.4.3",
     "react-timeago": "^5.2.0",
     "rsuite": "^4.8.2",
-    "timeago-react": "^3.0.1"
+    "timeago-react": "^3.0.1",
+    "use-context-selector": "^1.2.12"
   },
   "scripts": {
     "start": "react-scripts start",
