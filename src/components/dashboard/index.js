@@ -13,9 +13,9 @@ const Dashboard = ({ onSignOut }) => {
   const onSave = async newData => {
     // console.log(newData);
     // change the database nickname from profile/name
-    const userNicknameRef = database
-      .ref(`/profiles/${profile.uid}`)
-      .child('name');
+    // const userNicknameRef = database
+    //   .ref(`/profiles/${profile.uid}`)
+    //   .child('name');
     try {
       //   await userNicknameRef.set(newData);
       const updates = await getUserUpdates(
