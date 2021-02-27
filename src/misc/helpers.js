@@ -14,3 +14,28 @@ export function transformToArrWithId(snapVal) {
       })
     : [];
 }
+
+export const getUserUpdates = async (userId, keyToUpdate, value, db) => {
+  const updates = {};
+  updates[`/profiles/${userId}/${keyToUpdate}`] = value;
+  const getMsgs = db
+    .ref('/messages')
+    .orderByChild('author/uid')
+    .equalTo(userId)
+    .once('value');
+  const getRooms = db
+    .ref('/rooms')
+    .orderByChild('lastMessage/author/uid')
+    .equalTo(userId)
+    .once('value');
+  const [msgSnap, rSnap] = await Promise.all([getMsgs, getRooms]);
+
+  msgSnap.forEach(msgSnap => {
+    updates[`/messages/${msgSnap.key}/author/${keyToUpdate}`] = value;
+  });
+
+  rSnap.forEach(roomSnap => {
+    updates[`/rooms/${roomSnap.key}/lastMessage/author/${keyToUpdate}`] = value;
+  });
+  return updates;
+};
