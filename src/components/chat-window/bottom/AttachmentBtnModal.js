@@ -9,8 +9,8 @@ const MAX_FILE_SIZE = 1000 * 1024 * 5; // 5 mg in bytes
 const AttachmentBtnModal = ({ afterUpload }) => {
   const { chatId } = useParams();
   const { isOpen, open, close } = useModalState();
-  const [isLoading, setIsLoading] = useState(false);
 
+  const [isLoading, setIsLoading] = useState(false);
   const [fileList, setFileList] = useState([]);
 
   const handleChange = fileArr => {
@@ -32,14 +32,16 @@ const AttachmentBtnModal = ({ afterUpload }) => {
           });
       });
       const uploadSnapshots = await Promise.all(uploadPromises);
+
       const shapePromises = uploadSnapshots.map(async snapshot => {
         return {
           contentType: snapshot.metadata.contentType,
           name: snapshot.metadata.name,
-          url: snapshot.ref.getDownloadURL(),
+          url: await snapshot.ref.getDownloadURL(),
         };
       });
       const files = await Promise.all(shapePromises);
+
       await afterUpload(files);
       setIsLoading(false);
       close();
@@ -71,7 +73,7 @@ const AttachmentBtnModal = ({ afterUpload }) => {
           />
         </Modal.Body>
         <Modal.Footer>
-          <Button block disabled={isLoading}>
+          <Button block disabled={isLoading} onClick={onUpload}>
             {' '}
             Send to chat
           </Button>
