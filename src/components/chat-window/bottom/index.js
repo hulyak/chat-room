@@ -1,8 +1,8 @@
 import React, { useCallback, useState } from 'react';
 import { Alert, Icon, Input, InputGroup } from 'rsuite';
 import firebase from 'firebase/app';
-import { useProfile } from '../../../context/profile.context';
 import { useParams } from 'react-router';
+import { useProfile } from '../../../context/profile.context';
 import { database } from '../../../misc/firebase';
 
 function assembleMessage(profile, chatId) {
@@ -56,9 +56,9 @@ const Bottom = () => {
     }
   };
 
-  const onKeyDown = e => {
-    if (e.keyCode === 13) {
-      e.preventDefault();
+  const onKeyDown = ev => {
+    if (ev.keyCode === 13) {
+      ev.preventDefault();
       onSendClick();
     }
   };
