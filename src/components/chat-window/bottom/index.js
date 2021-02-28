@@ -2,6 +2,7 @@ import React, { useCallback, useState } from 'react';
 import { Alert, Icon, Input, InputGroup } from 'rsuite';
 import firebase from 'firebase/app';
 import { useParams } from 'react-router';
+import AttachmentBtnModal from './AttachmentBtnModal';
 import { useProfile } from '../../../context/profile.context';
 import { database } from '../../../misc/firebase';
 
@@ -66,6 +67,7 @@ const Bottom = () => {
   return (
     <div>
       <InputGroup>
+        <AttachmentBtnModal />
         <Input
           placeholder="Write a new message here..."
           value={input}
