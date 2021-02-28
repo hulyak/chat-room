@@ -17,7 +17,7 @@ const Messages = () => {
     // listen for changes in messages
     messagesRef
       .orderByChild('roomId')
-      .equalTo('chatId')
+      .equalTo(chatId)
       .on('value', snap => {
         const data = transformToArrWithId(snap.val());
         setMessages(data);
