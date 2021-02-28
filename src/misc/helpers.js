@@ -15,6 +15,10 @@ export function transformToArrWithId(snapVal) {
     : [];
 }
 
+export const transformToArr = snapVal => {
+  return snapVal ? Object.keys(snapVal) : [];
+};
+
 export const getUserUpdates = async (userId, keyToUpdate, value, db) => {
   const updates = {};
   updates[`/profiles/${userId}/${keyToUpdate}`] = value;
