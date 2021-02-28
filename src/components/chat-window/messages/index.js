@@ -52,6 +52,37 @@ const Messages = () => {
     [chatId]
   );
 
+  const handleDelete = useCallback(
+    async msgId => {
+      if (!window.confirm('Are you sure you want to delete this message?')) {
+        return;
+      }
+      // consider last message property
+      const isLast = messages[messages.length - 1].id === msgId;
+      const updates = {};
+
+      updates[`/messages/${msgId}`] = null; // delete original message
+      if (isLast && messages.length > 1) {
+        // check it is not null
+        updates[`/rooms/${chatId}/lastMessage`] = {
+          ...messages[messages.length - 2], // grab the previous object
+          msgId: messages[messages.length - 2].id, // last message
+        };
+      }
+      // delete the last message inside room info
+      if (isLast && messages.length === 1) {
+        updates[`/rooms/${chatId}/lastMessage`] = null;
+      }
+      try {
+        await database.ref().update(updates);
+        Alert.info('Message has been deleted');
+      } catch (err) {
+        Alert.error(err.message, 4000);
+      }
+    },
+    [chatId, messages]
+  );
+
   const handleLike = useCallback(async msgId => {
     const { uid } = auth.currentUser;
     const messageRef = database.ref(`/messages/${msgId}`);
@@ -90,6 +121,7 @@ const Messages = () => {
             message={msg}
             handleAdmin={handleAdmin}
             handleLike={handleLike}
+            handleDelete={handleDelete}
           />
         ))}
     </ul>
