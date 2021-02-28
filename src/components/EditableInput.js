@@ -6,7 +6,7 @@ const EditableInput = ({
   onSave,
   label = null,
   placeholder = 'Write your value',
-  emptyMessage = 'Input is empty',
+  emptyMsg = 'Input is empty',
   wrapperClassName = '',
   ...inputProps
 }) => {
@@ -27,7 +27,7 @@ const EditableInput = ({
   const onSaveClick = async () => {
     const trimmed = input.trim();
     if (trimmed === '') {
-      Alert.info(emptyMessage, 4000);
+      Alert.info(emptyMsg, 4000);
     }
 
     if (trimmed !== initialValue) {
@@ -41,10 +41,9 @@ const EditableInput = ({
       {label}
       <InputGroup>
         <Input
-          disabled={!isEditable}
           {...inputProps}
+          disabled={!isEditable}
           placeholder={placeholder}
-          onSave={onSave}
           onChange={onInputChange}
           value={input}
         />
