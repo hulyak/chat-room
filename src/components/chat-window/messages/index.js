@@ -17,7 +17,7 @@ const Messages = () => {
     // listen for changes in messages
     messagesRef
       .orderByChild('roomId')
-      .equalTo(chatId)
+      .equalTo(chatId) // from params
       .on('value', snap => {
         const data = transformToArrWithId(snap.val());
         setMessages(data);
@@ -36,7 +36,7 @@ const Messages = () => {
       await adminsRef.transaction(admins => {
         if (admins) {
           if (admins[uid]) {
-            admins[uid] = null; // revoke access, delete from database
+            admins[uid] = null;
             alertMsg = 'Admin permission removed';
           } else {
             admins[uid] = true;

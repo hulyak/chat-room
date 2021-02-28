@@ -10,9 +10,9 @@ import {
   Modal,
   Schema,
 } from 'rsuite';
+import firebase from 'firebase/app';
 import { useModalState } from '../misc/custom-hooks';
-import firebase, { auth } from 'firebase/app';
-import { database } from '../misc/firebase';
+import { database, auth } from '../misc/firebase';
 
 const { StringType } = Schema.Types;
 const model = Schema.Model({
