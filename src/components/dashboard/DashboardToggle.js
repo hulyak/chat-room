@@ -10,7 +10,6 @@ const DashboardToggle = () => {
   const isMobile = useMediaQuery('(max-width: 992px)');
 
   const onSignOut = useCallback(() => {
-    // memoize
     database
       .ref(`status/${auth.currentUser.uid}`)
       .set(isOfflineForDatabase)
