@@ -26,7 +26,7 @@ const MessageItem = ({ message }) => {
         />
       </div>
       <div>
-        <span className="word-break-all">{text}</span>
+        <span className="word-breal-all">{text}</span>
       </div>
     </li>
   );

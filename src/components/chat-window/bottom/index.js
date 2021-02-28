@@ -20,9 +20,10 @@ function assembleMessage(profile, chatId) {
 
 const Bottom = () => {
   const [input, setInput] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+
   const { profile } = useProfile();
   const { chatId } = useParams();
-  const [isLoading, setIsLoading] = useState(false);
 
   const onInputChange = useCallback(value => {
     setInput(value);
@@ -39,7 +40,7 @@ const Bottom = () => {
     //   create last updates message,create messages in our database, get new unique key without creating the actual document
     const messageId = database.ref('messages').push().key;
     updates[`/messages/${messageId}`] = msgData;
-    updates[`rooms/${chatId}/lastMessage`] = {
+    updates[`/rooms/${chatId}/lastMessage`] = {
       ...msgData,
       msgId: messageId,
     };
@@ -68,13 +69,13 @@ const Bottom = () => {
           placeholder="Write a new message here..."
           value={input}
           onChange={onInputChange}
+          onKeyDown={onKeyDown}
         />
         <InputGroup.Button
           color="blue"
           appearance="primary"
           onClick={onSendClick}
           disabled={isLoading}
-          onKeyDown={onKeyDown}
         >
           <Icon icon="send" />
         </InputGroup.Button>
