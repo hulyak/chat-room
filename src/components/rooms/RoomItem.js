@@ -27,6 +27,7 @@ const RoomItem = ({ room }) => {
             </div>
             <div className="text-disappear ml-2">
               <div className="italic">{lastMessage.author.name}</div>
+              {/* show the message or file for the last message */}
               <span>{lastMessage.text || lastMessage.file.name}</span>
             </div>
           </>
