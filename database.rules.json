@@ -33,7 +33,7 @@
     },
     "fcm_tokens": {
       "$token_id": {
-        ".read": "false",
+        ".read": false,
         ".write": "newData.val() === auth.uid"
       }
     },
