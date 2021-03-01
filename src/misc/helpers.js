@@ -43,3 +43,16 @@ export const getUserUpdates = async (userId, keyToUpdate, value, db) => {
   });
   return updates;
 };
+
+export function groupBy(array, groupingKeyFunc) {
+  return array.reduce((result, item) => {
+    const groupingKey = groupingKeyFunc(item);
+
+    if (!result[groupingKey]) {
+      result[groupingKey] = [];
+    }
+    result[groupingKey].push(item);
+
+    return result;
+  }, {});
+}
