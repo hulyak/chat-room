@@ -46,6 +46,9 @@ const CreateRoomBtnModal = () => {
       admins: {
         [auth.currentUser.uid]: true,
       },
+      fcmUsers: {
+        [auth.currentUser.uid]: true,
+      },
     };
     try {
       await database.ref('rooms').push(newRoomData); // push new value
@@ -88,7 +91,6 @@ const CreateRoomBtnModal = () => {
               <ControlLabel>Description</ControlLabel>
               <FormControl
                 componentClass="textarea"
-                name="name"
                 rows={5}
                 name="description"
                 placeholder="Enter room description..."
