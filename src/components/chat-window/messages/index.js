@@ -32,9 +32,10 @@ const Messages = () => {
       messagesRef
         .orderByChild('roomId')
         .equalTo(chatId) // from params
-        .limitToLast(limitToLast || PAGE_SIZE) //The maximum number of nodes to include in this query.
+        .limitToLast(limitToLast || PAGE_SIZE)
         .on('value', snap => {
           const data = transformToArrWithId(snap.val());
+
           setMessages(data);
 
           if (shouldScrollToBottom(node)) {
