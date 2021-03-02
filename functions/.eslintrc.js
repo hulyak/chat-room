@@ -5,5 +5,4 @@ module.exports = {
     node: true,
   },
   extends: ['eslint:recommended', 'google'],
-  'consistent-return ': 0,
 };
