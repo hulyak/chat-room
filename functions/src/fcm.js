@@ -12,7 +12,6 @@ exports.sendFcm = functions
     checkIfAuth(context);
 
     const { chatId, title, message } = data;
-
     const roomSnap = await database.ref(`/rooms/${chatId}`).once('value');
 
     if (!roomSnap.exists()) {
