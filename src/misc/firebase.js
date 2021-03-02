@@ -41,7 +41,7 @@ export const messaging = firebase.messaging.isSupported()
 //   });
 if (messaging) {
   messaging.usePublicVapidKey(
-    'BLs_I-HQyrAuUJJh8H3U0vtHGhVhXLMqoVoomeNL90GMKm0-o7sSoN9CJYRiBAVz-Yi7ZAni8mKateJfDwodTnw'
+    'BJ_lFbdq1RmUrKGgv4RD57-9_UstBgLx1EKm3rd2G43WK2qlPfT91e_5WhXJYcEOyfOg_EyfTVnzK_NeMAOT_r8'
   );
 
   // foreground
