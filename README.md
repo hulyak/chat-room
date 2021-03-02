@@ -42,7 +42,7 @@
 - Build presence in [CLoud Firestore](https://firebase.google.com/docs/firestore/solutions/presence)
 - [`useHover`](https://usehooks.com/useHover/) hook
 - send realtime notifications with Cloud Messaging
-- `[Service Worker](https://firebase.google.com/docs/cloud-messaging/js/receive)` to get a background notification
+- [`Service Worker`](https://firebase.google.com/docs/cloud-messaging/js/receive) to get a background notification
 - [FCM cloud functions](https://firebase.google.com/docs/cloud-messaging/send-message) Send messages to multiple devices
 
 ## Installation
