@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { ButtonToolbar, Icon } from 'rsuite';
 import { useCurrentRoom } from '../../../context/current-room.context';
 import { useMediaQuery } from '../../../misc/custom-hooks';
+import AskFcmBtnModal from './AskFcmBtnModal';
 import EditRoomBtnDrawer from './EditRoomBtnDrawer';
 import RoomInfoBtnModal from './RoomInfoBtnModal';
 import SendFcmBtnModal from './SendFcmBtnModal';
@@ -31,6 +32,7 @@ const Top = () => {
         </h4>
 
         <ButtonToolbar className="ws-nowrap">
+          <AskFcmBtnModal />
           {/* only show the edit button if the user is Admin */}
           {isAdmin && <EditRoomBtnDrawer />}
         </ButtonToolbar>

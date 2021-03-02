@@ -36,9 +36,9 @@ const EditRoomBtnDrawer = () => {
   };
 
   return (
-    <div>
+    <>
       <Button className="br-circle" size="sm" color="red" onClick={open}>
-        A
+        H
       </Button>
       <Drawer full={isMobile} show={isOpen} onHide={close} placement="right">
         <Drawer.Header>
@@ -65,7 +65,7 @@ const EditRoomBtnDrawer = () => {
           <Button block onClick={close}></Button>
         </Drawer.Footer>
       </Drawer>
-    </div>
+    </>
   );
 };
 
