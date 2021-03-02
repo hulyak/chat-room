@@ -1,5 +1,7 @@
 # Chat Application with React and RSuite
 
+### [Demo](public/demo.mp4)
+
 ## Features:
 
 - Sign in with Facebook and Google
