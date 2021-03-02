@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 import 'rsuite/dist/styles/rsuite-default.css';
 import './styles/main.scss';
 import { Switch } from 'react-router';
@@ -6,8 +6,8 @@ import { Switch } from 'react-router';
 import PrivateRoute from './components/PrivateRoute';
 import PublicRoute from './components/PublicRoute';
 import Home from './pages/Home';
-import Signin from './pages/Signin';
 import ErrorBoundary from './components/ErrorBoundary';
+import SignIn from './pages/SignIn';
 
 import { ProfileProvider } from './context/profile.context';
 
@@ -17,7 +17,7 @@ function App() {
       <ProfileProvider>
         <Switch>
           <PublicRoute path="/signin">
-            <Signin />
+            <SignIn />
           </PublicRoute>
           <PrivateRoute path="/">
             <Home />

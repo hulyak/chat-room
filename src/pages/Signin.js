@@ -4,7 +4,7 @@ import { auth, database } from '../misc/firebase';
 import { Alert, Button, Col, Container, Grid, Icon, Panel, Row } from 'rsuite';
 import Modal from '../components/Modal';
 
-const Signin = () => {
+const SignIn = () => {
   const signInWithProvider = async provider => {
     try {
       const { additionalUserInfo, user } = await auth.signInWithPopup(provider);
@@ -62,4 +62,4 @@ const Signin = () => {
   );
 };
 
-export default Signin;
+export default SignIn;
