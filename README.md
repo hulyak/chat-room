@@ -33,3 +33,11 @@
 - Firebase Storage to store profile info
 - `useRef` hook to access Canvas element for avatar image
 - React Portals/Modals.
+
+## Installation
+
+```bash
+yarn install
+
+yarn start
+```
